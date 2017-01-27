@@ -4,15 +4,15 @@ import { FormsModule }         from '@angular/forms';
 
 import { AlertComponent,LoadingMessageComponent } from './_directives/index';
 
-export const sharedComponents: Array<any> = [AlertComponent,LoadingMessageComponent];
+export const globalComponents: Array<any> = [AlertComponent,LoadingMessageComponent];
 
 @NgModule({
     imports:      [ CommonModule,FormsModule ],
-    declarations: [ sharedComponents ],
+    declarations: [ globalComponents ],
     exports:      [
-        CommonModule, FormsModule, sharedComponents ]
+        CommonModule, FormsModule, globalComponents ]
 })
-export class SharedModule {
+export class GlobalModule {
     constructor() {
 
     }

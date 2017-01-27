@@ -9,23 +9,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var platform_browser_1 = require('@angular/platform-browser');
 var common_1 = require('@angular/common');
 var forms_1 = require('@angular/forms');
-var index_1 = require('./_directives/index');
-exports.sharedComponents = [index_1.AlertComponent, index_1.LoadingMessageComponent];
-var SharedModule = (function () {
-    function SharedModule() {
+var angularfire2_1 = require('angularfire2');
+var global_module_1 = require('../global/global.module');
+var hymns_routing_1 = require('./hymns.routing');
+//import { HymnListComponent } from './hymn-list/hymn-list.component';
+var HymnsModule = (function () {
+    function HymnsModule() {
     }
-    SharedModule = __decorate([
+    HymnsModule = __decorate([
         core_1.NgModule({
-            imports: [common_1.CommonModule, forms_1.FormsModule],
-            declarations: [exports.sharedComponents],
+            imports: [platform_browser_1.BrowserModule, common_1.CommonModule, forms_1.FormsModule, angularfire2_1.AngularFireModule, hymns_routing_1.HymnRouting,
+                global_module_1.GlobalModule],
+            declarations: [hymns_routing_1.HymnRouteComponents],
             exports: [
-                common_1.CommonModule, forms_1.FormsModule, exports.sharedComponents]
+                platform_browser_1.BrowserModule, common_1.CommonModule, forms_1.FormsModule]
         }), 
         __metadata('design:paramtypes', [])
-    ], SharedModule);
-    return SharedModule;
+    ], HymnsModule);
+    return HymnsModule;
 }());
-exports.SharedModule = SharedModule;
-//# sourceMappingURL=shared.module.js.map
+exports.HymnsModule = HymnsModule;
+//# sourceMappingURL=hymn.module.js.map

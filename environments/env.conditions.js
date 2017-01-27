@@ -3,8 +3,8 @@ var envir;
 switch (window.location.hostname) {
     case 'localhost':
     case '127.0.0.1':
-    case 'groovytask-dev.firebaseapp.com':
-    case 'groovytask-dev.nerdyhippie.com':
+    case 'hymnal-dev.firebaseapp.com':
+    case 'hymnal-dev.nerdyhippie.com':
         envir = 'dev';
         console.warn('DEVELOPMENT MODE: envir is', envir);
         break;

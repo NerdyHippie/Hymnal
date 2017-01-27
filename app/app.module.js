@@ -18,21 +18,22 @@ var ng_bootstrap_1 = require('@ng-bootstrap/ng-bootstrap');
 var primeng_1 = require('primeng/primeng');
 // App Routing
 var app_routing_1 = require('./app.routing');
-var index_1 = require('./shared/_guards/index');
-// GroovyTask Modules
+var index_1 = require('./global/_guards/index');
+// Hymnal Modules
 var admin_module_1 = require('./admin/admin.module');
-var shared_module_1 = require('./shared/shared.module');
+var hymn_module_1 = require('./hymns/hymn.module');
+var global_module_1 = require('./global/global.module');
 // Components
 var app_component_1 = require('./app.component');
 var nav_bar_component_1 = require('./core/nav-bar/nav-bar.component');
 // Global Services
-var index_2 = require('./shared/_services/index');
+var index_2 = require('./global/_services/index');
 // Environment Config
 //noinspection TypeScriptCheckImport
 var firebaseConfig_1 = require('firebaseConfig');
-// TODO: Create Core Module
-// Concatenate the Core Components here for readability
+// Concatenate Components here for readability
 exports.CoreComponents = [nav_bar_component_1.NavBarComponent];
+exports.PrimeModules = [primeng_1.CalendarModule, primeng_1.EditorModule, global_module_1.GlobalModule];
 var AppModule = (function () {
     function AppModule() {
     }
@@ -45,10 +46,11 @@ var AppModule = (function () {
                 http_1.HttpModule,
                 angularfire2_1.AngularFireModule.initializeApp(firebaseConfig_1.FirebaseConfig, firebaseConfig_1.myFirebaseAuthConfig),
                 ng_bootstrap_1.NgbModule.forRoot(),
-                primeng_1.CalendarModule,
+                exports.PrimeModules,
                 app_routing_1.AppRouting,
-                shared_module_1.SharedModule,
-                admin_module_1.AdminModule
+                admin_module_1.AdminModule,
+                hymn_module_1.HymnsModule,
+                global_module_1.GlobalModule
             ],
             declarations: [
                 app_component_1.AppComponent,
@@ -60,7 +62,8 @@ var AppModule = (function () {
                 index_2.AlertService,
                 index_2.AuthenticationService,
                 index_2.Logger,
-                index_2.UserService
+                index_2.UserService,
+                index_2.UtilService
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

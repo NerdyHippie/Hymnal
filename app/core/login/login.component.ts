@@ -1,7 +1,7 @@
 ﻿import { Component, OnInit,OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { AlertService, AuthenticationService, Logger } from '../../shared/_services/index';
+import { AlertService, AuthenticationService, Logger } from '../../global/_services/index';
 import { Subscription} from "rxjs";
 
 @Component({

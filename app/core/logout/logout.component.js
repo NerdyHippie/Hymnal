@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var index_1 = require('../../shared/_services/index');
+var index_1 = require('../../global/_services/index');
 var LogoutComponent = (function () {
     function LogoutComponent(route, router, authenticationService) {
         this.route = route;

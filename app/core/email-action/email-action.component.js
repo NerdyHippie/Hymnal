@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require("@angular/router");
 var angularfire2_1 = require('angularfire2');
-var alert_service_1 = require("../../shared/_services/alert.service");
+var alert_service_1 = require("../../global/_services/alert.service");
 var firebase = require('firebase');
 var EmailActionComponent = (function () {
     function EmailActionComponent(af, activatedRoute, alertService, router) {
@@ -55,7 +55,7 @@ var EmailActionComponent = (function () {
             .then(function (email) { return _this.accountEmail = email; })
             .catch(function (error) {
             _this.alertService.error(error.message);
-            console.error('GroovyTask: Error in verifyPasswordResetCode', error);
+            console.error('Hymnal: Error in verifyPasswordResetCode', error);
         });
     };
     EmailActionComponent.prototype.doPasswordReset = function (newPassword) {
@@ -66,7 +66,7 @@ var EmailActionComponent = (function () {
             .then(_this.router.navigate(['/'])); })
             .catch(function (error) {
             _this.alertService.error(error.message);
-            console.error('GroovyTask: Error in confirmPasswordReset', error);
+            console.error('Hymnal: Error in confirmPasswordReset', error);
         });
     };
     EmailActionComponent.prototype.handleRecoverEmail = function () {

@@ -1,0 +1,23 @@
+<h1>Edit Hymn</h1>
+
+<form (submit)="saveHymn()" *ngIf="selectedHymn">
+	<div class="form-group">
+		<label>Title</label>
+		<input type="text" class="form-control" name="title" [(ngModel)]="selectedHymn.title">
+	</div>
+	
+	<div class="form-group">
+		<label>Content</label>
+		<p-editor [(ngModel)]="selectedHymn.content" [style]="{'height':'320px'}"></p-editor>
+		<textarea class="form-control" name="content" [(ngModel)]="selectedHymn.content"></textarea>
+	</div>
+	
+	<div class="form-group">
+		<label>Archived</label>
+		<input type="checkbox" class="form-check" name="archived" [(ngModel)]="selectedHymn.archived">
+	</div>
+	
+	<button type="submit" class="btn btn-primary">Save</button>
+	<button type="button" class="btn btn-default" (click)="cancelEdit()">Cancel</button>
+	
+</form>

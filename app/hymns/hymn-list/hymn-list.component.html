@@ -1,0 +1,9 @@
+<h1>Hymn List</h1>
+
+
+<ul>
+	<li *ngFor="let hymn of hymns">
+		<a routerLink="/hymns/{{hymn.$key}}">{{hymn.title}}</a>
+	</li>
+</ul>
+<router-outlet></router-outlet>

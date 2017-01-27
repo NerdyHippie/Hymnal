@@ -2,7 +2,7 @@
 import { Router } from '@angular/router';
 import { AngularFire } from 'angularfire2';
 
-import { UserService,AlertService } from '../../shared/_services/index';
+import { UserService,AlertService } from '../../global/_services/index';
 
 @Component({
     moduleId: module.id,

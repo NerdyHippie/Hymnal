@@ -11,8 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var angularfire2_1 = require('angularfire2');
-var authentication_service_1 = require('../../shared/_services/authentication.service');
-var user_service_1 = require('../../shared/_services/user.service');
+var authentication_service_1 = require('../../global/_services/authentication.service');
+var user_service_1 = require('../../global/_services/user.service');
 var NavBarComponent = (function () {
     function NavBarComponent(authSvc, userService, af, router) {
         this.authSvc = authSvc;

@@ -9,8 +9,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var alert_service_1 = require("../../shared/_services/alert.service");
-var user_service_1 = require('../../shared/_services/user.service');
+var alert_service_1 = require("../../global/_services/alert.service");
+var user_service_1 = require('../../global/_services/user.service');
 var firebase = require('firebase');
 var LinkAccountComponent = (function () {
     function LinkAccountComponent(userService, alertService) {

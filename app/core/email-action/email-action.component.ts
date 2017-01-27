@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute,Params } from "@angular/router";
 import { AngularFire } from 'angularfire2';
-import { AlertService } from "../../shared/_services/alert.service";
+import { AlertService } from "../../global/_services/alert.service";
 import * as firebase from 'firebase';
 
 

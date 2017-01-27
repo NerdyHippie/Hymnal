@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFire } from 'angularfire2';
-import { AuthenticationService } from '../../shared/_services/authentication.service';
+import { AuthenticationService } from '../../global/_services/authentication.service';
 
-import { UserService } from '../../shared/_services/user.service';
-import { User } from "../../shared/_models/user.model";
+import { UserService } from '../../global/_services/user.service';
+import { User } from "../../global/_models/user.model";
 
 @Component({
     moduleId:    module.id,

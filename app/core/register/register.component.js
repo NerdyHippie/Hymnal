@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var angularfire2_1 = require('angularfire2');
-var index_1 = require('../../shared/_services/index');
+var index_1 = require('../../global/_services/index');
 var RegisterComponent = (function () {
     function RegisterComponent(router, af, alertService, usrSvc) {
         this.router = router;
@@ -49,7 +49,7 @@ var RegisterComponent = (function () {
         });
     };
     RegisterComponent.prototype.registerFailure = function (error) {
-        console.error('GroovyTask: Registration Failed', error);
+        console.error('Hymnal: Registration Failed', error);
         this.alertService.error(error);
         this.loading = false;
     };

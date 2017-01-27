@@ -1,8 +1,9 @@
 import { Component, OnInit,OnDestroy } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { UserDetailComponent } from '../user-detail/user-detail.component';
-import { UserService } from '../../shared/_services/user.service';
-import { User } from '../../shared/_models/user.model';
+import { UserService } from '../../global/_services/user.service';
+import { UtilService } from '../../global/_services/utils.service';
+import { User } from '../../global/_models/user.model';
 
 @Component({
 	moduleId: module.id,
@@ -14,7 +15,7 @@ export class UserEditorComponent extends UserDetailComponent implements OnInit,O
   currentUser: User;
   showLinkOptions: Boolean = false;
 	
-	constructor(public userService:UserService, public activatedRoute:ActivatedRoute, public router:Router) {
+	constructor(public userService:UserService,public utils:UtilService, public activatedRoute:ActivatedRoute, public router:Router) {
   	super(userService,activatedRoute,router);
 	}
 	
@@ -42,7 +43,7 @@ export class UserEditorComponent extends UserDetailComponent implements OnInit,O
 	
 	updateUser() {
 		this.savedUser = { key: this.user.$key };
-		this.usrSvc.getUser(this.user.$key).set(this.usrSvc.cleanObj(this.user)).then(this.openDetail.bind(this));
+		this.usrSvc.getUser(this.user.$key).set(this.utils.cleanObj(this.user)).then(this.openDetail.bind(this));
 	}
 	
 	openDetail() {

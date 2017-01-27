@@ -25,14 +25,6 @@ var UserService = (function () {
     UserService.prototype.initialize = function () {
         this.userList$ = this.af.database.list('/users');
     };
-    UserService.prototype.cleanObj = function (input) {
-        var invalidProps = ['$key', '$exists'];
-        for (var _i = 0, invalidProps_1 = invalidProps; _i < invalidProps_1.length; _i++) {
-            var prop = invalidProps_1[_i];
-            delete input[prop];
-        }
-        return input;
-    };
     UserService.prototype.getUser = function (userId) {
         var path = '/users/' + userId;
         return this.af.database.object(path);

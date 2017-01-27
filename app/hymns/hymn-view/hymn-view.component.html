@@ -1,0 +1,9 @@
+<h2>Hymn View</h2>
+<div *ngIf="selectedHymn">
+	<button class="btn btn-primary btn-sm" routerLink="../edit/{{selectedHymn.$key}}"><i class="fa fa-pencil"></i> Edit</button>
+	<div class="hymn-title">{{selectedHymn.title}} <span *ngIf="!selectedHymn.active">[archived]</span></div>
+	<div class="stamp">Created on {{selectedHymn.dateCreated}} by {{selectedHymn.createdBy}}</div>
+	<div class="content" [innerHTML]="selectedHymn.content"></div>
+	
+</div>
+

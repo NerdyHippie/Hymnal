@@ -31,13 +31,7 @@ export class UserService {
 		this.userList$ = this.af.database.list('/users');
 	}
 	
-	cleanObj(input:Object) {
-		let invalidProps = ['$key','$exists'];
-		for (let prop of invalidProps) {
-			delete input[prop];
-		}
-		return input;
-	}
+	
 	
 	getUser(userId:String):any {
 		let path = '/users/'+userId;

@@ -1,6 +1,6 @@
 "use strict";
 var router_1 = require('@angular/router');
-var auth_guard_1 = require('./shared/_guards/auth.guard');
+var auth_guard_1 = require('./global/_guards/auth.guard');
 var home_component_1 = require('./core/home/home.component');
 var calendar_component_1 = require('./core/calendar/calendar.component');
 var login_component_1 = require('./core/login/login.component');

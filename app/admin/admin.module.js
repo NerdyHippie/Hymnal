@@ -13,7 +13,7 @@ var platform_browser_1 = require('@angular/platform-browser');
 var common_1 = require('@angular/common');
 var forms_1 = require('@angular/forms');
 var angularfire2_1 = require('angularfire2');
-var shared_module_1 = require('../shared/shared.module');
+var global_module_1 = require('../global/global.module');
 var admin_routing_1 = require('./admin.routing');
 var user_manager_component_1 = require('./user-manager/user-manager.component');
 var link_account_component_1 = require('./link-account/link-account.component');
@@ -23,7 +23,7 @@ var AdminModule = (function () {
     AdminModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, common_1.CommonModule, forms_1.FormsModule, angularfire2_1.AngularFireModule, admin_routing_1.AdminRouting,
-                shared_module_1.SharedModule],
+                global_module_1.GlobalModule],
             declarations: [admin_routing_1.AdminRouteComponents, user_manager_component_1.UserManagerComponent, link_account_component_1.LinkAccountComponent],
             exports: [
                 platform_browser_1.BrowserModule, common_1.CommonModule, forms_1.FormsModule]

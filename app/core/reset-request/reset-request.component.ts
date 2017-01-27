@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthenticationService } from "../../shared/_services/authentication.service";
+import { AuthenticationService } from "../../global/_services/authentication.service";
 
 export interface ResetModel {
 	email: string

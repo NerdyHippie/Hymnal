@@ -16,12 +16,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var user_detail_component_1 = require('../user-detail/user-detail.component');
-var user_service_1 = require('../../shared/_services/user.service');
+var user_service_1 = require('../../global/_services/user.service');
+var utils_service_1 = require('../../global/_services/utils.service');
 var UserEditorComponent = (function (_super) {
     __extends(UserEditorComponent, _super);
-    function UserEditorComponent(userService, activatedRoute, router) {
+    function UserEditorComponent(userService, utils, activatedRoute, router) {
         _super.call(this, userService, activatedRoute, router);
         this.userService = userService;
+        this.utils = utils;
         this.activatedRoute = activatedRoute;
         this.router = router;
         this.showLinkOptions = false;
@@ -47,7 +49,7 @@ var UserEditorComponent = (function (_super) {
     };
     UserEditorComponent.prototype.updateUser = function () {
         this.savedUser = { key: this.user.$key };
-        this.usrSvc.getUser(this.user.$key).set(this.usrSvc.cleanObj(this.user)).then(this.openDetail.bind(this));
+        this.usrSvc.getUser(this.user.$key).set(this.utils.cleanObj(this.user)).then(this.openDetail.bind(this));
     };
     UserEditorComponent.prototype.openDetail = function () {
         this.router.navigate(['../../' + this.savedUser.key]);
@@ -70,7 +72,7 @@ var UserEditorComponent = (function (_super) {
             selector: 'user-editor',
             templateUrl: 'user-editor.component.html'
         }), 
-        __metadata('design:paramtypes', [user_service_1.UserService, router_1.ActivatedRoute, router_1.Router])
+        __metadata('design:paramtypes', [user_service_1.UserService, utils_service_1.UtilService, router_1.ActivatedRoute, router_1.Router])
     ], UserEditorComponent);
     return UserEditorComponent;
 }(user_detail_component_1.UserDetailComponent));

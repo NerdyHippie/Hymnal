@@ -5,30 +5,31 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CalendarModule } from 'primeng/primeng';
+import { CalendarModule,EditorModule,SharedModule} from 'primeng/primeng';
 
 // App Routing
 import { AppRouting,AppRoutingComponents } from './app.routing';
-import { AuthGuard } from './shared/_guards/index';
+import { AuthGuard } from './global/_guards/index';
 
 // Hymnal Modules
 import { AdminModule } from './admin/admin.module';
-import { SharedModule } from './shared/shared.module';
+import { HymnsModule } from './hymns/hymn.module';
+import { GlobalModule } from './global/global.module';
 
 // Components
 import { AppComponent }  from './app.component';
 import { NavBarComponent }  from './core/nav-bar/nav-bar.component';
 
 // Global Services
-import { AlertService,AuthenticationService,Logger,UserService } from './shared/_services/index';
+import { AlertService,AuthenticationService,Logger,UserService,UtilService } from './global/_services/index';
 
 // Environment Config
 //noinspection TypeScriptCheckImport
 import { FirebaseConfig,myFirebaseAuthConfig } from 'firebaseConfig';
 
-// TODO: Create Core Module
-// Concatenate the Core Components here for readability
+// Concatenate Components here for readability
 export const CoreComponents: Array<any> = [NavBarComponent];
+export const PrimeModules: Array<any> = [CalendarModule,EditorModule,GlobalModule];
 
 
 @NgModule({
@@ -39,10 +40,11 @@ export const CoreComponents: Array<any> = [NavBarComponent];
 		HttpModule,
 		AngularFireModule.initializeApp(FirebaseConfig,myFirebaseAuthConfig),
 		NgbModule.forRoot()
-		,CalendarModule
+		,PrimeModules
 		,AppRouting
-		,SharedModule
 		,AdminModule
+		,HymnsModule
+		,GlobalModule
 	],
 	declarations: [
 		AppComponent,
@@ -55,7 +57,8 @@ export const CoreComponents: Array<any> = [NavBarComponent];
 		AlertService,
 		AuthenticationService,
 		Logger,
-		UserService
+		UserService,
+		UtilService
 	],
 	bootstrap:    [ AppComponent ]
 })

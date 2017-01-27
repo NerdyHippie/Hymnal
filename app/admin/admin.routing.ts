@@ -1,7 +1,7 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes,RouterModule } from '@angular/router';
 
-import { AuthGuard } from '../shared/_guards/auth.guard';
+import { AuthGuard } from '../global/_guards/auth.guard';
 
 import { AdminComponent }   from './admin.component';
 import { UserManagerComponent } from './user-manager/user-manager.component';

@@ -11,12 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var AppComponent = (function () {
     function AppComponent() {
-        this.name = 'GroovyTask';
+        this.name = 'Hymnal';
     }
     AppComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'groovy-task-app',
+            selector: 'hymnal-app',
             templateUrl: './app.component.html',
             styleUrls: ['./app.component.css']
         }), 

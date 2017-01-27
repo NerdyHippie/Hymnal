@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AuthenticationService } from '../../shared/_services/index';
+import { AuthenticationService } from '../../global/_services/index';
 
 @Component({
 	template:'Logging out...'

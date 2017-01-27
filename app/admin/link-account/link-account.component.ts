@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertService } from "../../shared/_services/alert.service";
-import { UserService } from '../../shared/_services/user.service';
-import { User } from '../../shared/_models/user.model';
+import { AlertService } from "../../global/_services/alert.service";
+import { UserService } from '../../global/_services/user.service';
+import { User } from '../../global/_models/user.model';
 
 import * as firebase from 'firebase';
 
