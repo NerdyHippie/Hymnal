@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
 var forms_1 = require('@angular/forms');
 var index_1 = require('./_directives/index');
+var filter_by_id_pipe_1 = require("./_pipes/filter-by-id.pipe");
 exports.globalComponents = [index_1.AlertComponent, index_1.LoadingMessageComponent];
 var GlobalModule = (function () {
     function GlobalModule() {
@@ -19,9 +20,12 @@ var GlobalModule = (function () {
     GlobalModule = __decorate([
         core_1.NgModule({
             imports: [common_1.CommonModule, forms_1.FormsModule],
-            declarations: [exports.globalComponents],
+            declarations: [
+                exports.globalComponents,
+                filter_by_id_pipe_1.FilterByIdPipe
+            ],
             exports: [
-                common_1.CommonModule, forms_1.FormsModule, exports.globalComponents]
+                common_1.CommonModule, forms_1.FormsModule, exports.globalComponents, filter_by_id_pipe_1.FilterByIdPipe]
         }), 
         __metadata('design:paramtypes', [])
     ], GlobalModule);

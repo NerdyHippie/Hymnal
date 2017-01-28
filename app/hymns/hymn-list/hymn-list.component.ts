@@ -8,11 +8,12 @@ import {Router} from "@angular/router";
     moduleId: module.id,
     selector: 'hymn-list',
     templateUrl: 'hymn-list.component.html'
+	,styleUrls: ['hymn-list.component.css']
 })
 export class HymnListComponent implements OnInit {
 		hymns: Array<Hymn>;
 		
-    constructor(private af:AngularFire, private alertService:AlertService,private router:Router) { }
+    constructor(public af:AngularFire, public alertService:AlertService,public router:Router) { }
 
     ngOnInit() {
     	this.af.database.list('/hymns').subscribe(data => this.hymns = data,error => this.alertService.error(error));

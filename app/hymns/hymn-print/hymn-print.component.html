@@ -1,0 +1,46 @@
+<div class="no-print">
+	<h4>Print Settings</h4>
+	
+	<form >
+		<div class="form-group row">
+			<label class="col-sm-2 col-form-label">Font Size</label>
+			<div class="col-sm-4">
+				<select class="form-control" [(ngModel)]="printSettings.fontSize" name="fontSize">
+					<option value="10pt">10 pt</option>
+					<option value="12pt">12 pt</option>
+					<option value="14pt">14 pt</option>
+					<option value="16pt">16 pt</option>
+					<option value="18pt">18 pt</option>
+					<option value="20pt">20 pt</option>
+					<option value="22pt">22 pt</option>
+				</select>
+			</div>
+			<label class="col-sm-2 col-form-label">Columns</label>
+			<div class="col-sm-4">
+				<select class="form-control" [(ngModel)]="printSettings.colCount" name="colCount">
+					<option>1</option>
+					<option>2</option>
+					<option>3</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<select multiple class="form-control" [(ngModel)]="printSettings.selectedHymns" name="selectedHymns">
+				<option *ngFor="let hymn of hymns" value="{{hymn.$key}}">{{hymn.title}} <span *ngIf="hymn.subtitle">({{hymn.subtitle}})</span></option>
+			</select>
+		</div>
+		
+		
+	</form>
+</div>
+
+<div class="print-container" [style.fontSize]="printSettings.fontSize" [style.columnCount]="printSettings.colCount">
+	<div *ngFor="let selectedHymn of (hymns | filterById:printSettings.selectedHymns); let $index = index" class="hymn">
+		<div class="title">{{($index + 1)}}. {{selectedHymn.title}} <span *ngIf="!selectedHymn.active">[archived]</span></div>
+		<div class="subtitle" *ngIf="selectedHymn.subtitle">{{selectedHymn.subtitle}}</div>
+		<div class="content" style="white-space: pre-wrap;" [innerHTML]="selectedHymn.content"></div>
+		
+		<div class="reference" class="pull-right" *ngIf="selectedHymn.reference">({{selectedHymn.reference}})</div>
+	<div class="ui-helper-clearfix clearfix"></div>
+	</div>
+</div>

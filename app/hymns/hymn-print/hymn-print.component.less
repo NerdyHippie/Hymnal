@@ -1,0 +1,17 @@
+@import "../../../mixins/palette";
+@import "../../../mixins/mixins";
+
+
+.print-container {
+	.multi-col(3);
+}
+
+.hymn {
+	page-break-inside: avoid;
+}
+
+@media print {
+	.no-print {
+		display: none;
+	}
+}

@@ -1,9 +1,14 @@
 <h2>Hymn View</h2>
 <div *ngIf="selectedHymn">
 	<button class="btn btn-primary btn-sm" routerLink="../edit/{{selectedHymn.$key}}"><i class="fa fa-pencil"></i> Edit</button>
-	<div class="hymn-title">{{selectedHymn.title}} <span *ngIf="!selectedHymn.active">[archived]</span></div>
+	<div class="title">{{selectedHymn.title}} <span *ngIf="!selectedHymn.active">[archived]</span></div>
+	<div class="subtitle" *ngIf="selectedHymn.subtitle">{{selectedHymn.subtitle}}</div>
 	<div class="stamp">Created on {{selectedHymn.dateCreated}} by {{selectedHymn.createdBy}}</div>
-	<div class="content" [innerHTML]="selectedHymn.content"></div>
+	<div class="content" style="white-space: pre-wrap;" [innerHTML]="selectedHymn.content"></div>
+	
+	<div class="reference" class="pull-right" *ngIf="selectedHymn.reference">({{selectedHymn.reference}})</div>
 	
 </div>
 
+
+<!--{{selectedHymn | json}}-->

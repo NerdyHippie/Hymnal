@@ -1,9 +1,12 @@
 <h1>Hymn List</h1>
 
 
-<ul>
+<a class="btn btn-primary btn-sm" routerLink="/hymns/edit/create"><i class="fa fa-plus"></i> Add New Hymn</a>
+<a class="btn btn-info btn-sm" routerLink="/hymns/print"><i class="fa fa-print"></i> Print</a>
+
+<ol>
 	<li *ngFor="let hymn of hymns">
 		<a routerLink="/hymns/{{hymn.$key}}">{{hymn.title}}</a>
 	</li>
-</ul>
+</ol>
 <router-outlet></router-outlet>

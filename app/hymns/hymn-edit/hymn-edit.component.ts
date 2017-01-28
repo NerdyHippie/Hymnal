@@ -6,6 +6,7 @@ import {AngularFire} from "angularfire2";
 import {HymnViewComponent} from "../hymn-view/hymn-view.component";
 import {AlertService} from "../../global/_services/alert.service";
 import {UtilService} from "../../global/_services/utils.service";
+import {UserService} from "../../global/_services/user.service";
 
 
 @Component({
@@ -15,8 +16,8 @@ import {UtilService} from "../../global/_services/utils.service";
 })
 export class HymnEditComponent extends HymnViewComponent implements OnInit,OnDestroy {
 		
-		constructor(public af:AngularFire,public router:Router,public activatedRoute:ActivatedRoute,public alertService:AlertService,public utils:UtilService) {
-			super(af,router,activatedRoute);
+		constructor(public af:AngularFire,public userService:UserService,public router:Router,public activatedRoute:ActivatedRoute,public alertService:AlertService,public utils:UtilService) {
+			super(af,userService,router,activatedRoute);
 		}
 		
 		saveHymn() {
@@ -25,18 +26,25 @@ export class HymnEditComponent extends HymnViewComponent implements OnInit,OnDes
 				let cleaned = this.utils.cleanObj(this.selectedHymn);
 				this.af.database.object('/hymns/'+hymnId)
 					.update(cleaned)
-					.then((data:any) => this.router.navigate(['../../'+hymnId]))
-					.catch((error:any) => {console.error('GroovyTask: error saving obj',error); this.alertService.error(error);});
+					.then((data:any) => this.router.navigate(['../../'+hymnId],{relativeTo:this.activatedRoute}))
+					.catch((error:any) => {console.error('Hymnal: error saving obj',error); this.alertService.error(error);});
 			} else {
 				this.af.database.list('/hymns').push(this.selectedHymn)
-					.then((data:any) => console.log('push success',data))
-					.catch((error:any) => {console.error('GroovyTask: error pushing obj',error); this.alertService.error(error);});
+					.then((data:any) => {
+						this.router.navigate(['../../'+data.getKey()],{relativeTo:this.activatedRoute});
+					})
+					.catch((error:any) => {console.error('Hymnal: error pushing obj',error); this.alertService.error(error);});
 			}
 			
 		}
 		
 		cancelEdit() {
-			this.router.navigate([('../../'+this.selectedHymn.$key)]);
+			if (this.hymnId == 'create') {
+				this.router.navigate(['../../'],{relativeTo:this.activatedRoute});
+			} else {
+				this.router.navigate([('../../'+this.selectedHymn.$key)],{relativeTo:this.activatedRoute});
+			}
+			
 		}
 		
     /*ngOnInit() {

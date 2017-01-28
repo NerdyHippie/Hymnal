@@ -19,11 +19,13 @@ var angularfire2_1 = require("angularfire2");
 var hymn_view_component_1 = require("../hymn-view/hymn-view.component");
 var alert_service_1 = require("../../global/_services/alert.service");
 var utils_service_1 = require("../../global/_services/utils.service");
+var user_service_1 = require("../../global/_services/user.service");
 var HymnEditComponent = (function (_super) {
     __extends(HymnEditComponent, _super);
-    function HymnEditComponent(af, router, activatedRoute, alertService, utils) {
-        _super.call(this, af, router, activatedRoute);
+    function HymnEditComponent(af, userService, router, activatedRoute, alertService, utils) {
+        _super.call(this, af, userService, router, activatedRoute);
         this.af = af;
+        this.userService = userService;
         this.router = router;
         this.activatedRoute = activatedRoute;
         this.alertService = alertService;
@@ -36,17 +38,24 @@ var HymnEditComponent = (function (_super) {
             var cleaned = this.utils.cleanObj(this.selectedHymn);
             this.af.database.object('/hymns/' + hymnId_1)
                 .update(cleaned)
-                .then(function (data) { return _this.router.navigate(['../../' + hymnId_1]); })
-                .catch(function (error) { console.error('GroovyTask: error saving obj', error); _this.alertService.error(error); });
+                .then(function (data) { return _this.router.navigate(['../../' + hymnId_1], { relativeTo: _this.activatedRoute }); })
+                .catch(function (error) { console.error('Hymnal: error saving obj', error); _this.alertService.error(error); });
         }
         else {
             this.af.database.list('/hymns').push(this.selectedHymn)
-                .then(function (data) { return console.log('push success', data); })
-                .catch(function (error) { console.error('GroovyTask: error pushing obj', error); _this.alertService.error(error); });
+                .then(function (data) {
+                _this.router.navigate(['../../' + data.getKey()], { relativeTo: _this.activatedRoute });
+            })
+                .catch(function (error) { console.error('Hymnal: error pushing obj', error); _this.alertService.error(error); });
         }
     };
     HymnEditComponent.prototype.cancelEdit = function () {
-        this.router.navigate([('../../' + this.selectedHymn.$key)]);
+        if (this.hymnId == 'create') {
+            this.router.navigate(['../../'], { relativeTo: this.activatedRoute });
+        }
+        else {
+            this.router.navigate([('../../' + this.selectedHymn.$key)], { relativeTo: this.activatedRoute });
+        }
     };
     HymnEditComponent = __decorate([
         core_1.Component({
@@ -54,7 +63,7 @@ var HymnEditComponent = (function (_super) {
             selector: 'hymn-edit',
             templateUrl: 'hymn-edit.component.html'
         }), 
-        __metadata('design:paramtypes', [angularfire2_1.AngularFire, router_1.Router, router_1.ActivatedRoute, alert_service_1.AlertService, utils_service_1.UtilService])
+        __metadata('design:paramtypes', [angularfire2_1.AngularFire, user_service_1.UserService, router_1.Router, router_1.ActivatedRoute, alert_service_1.AlertService, utils_service_1.UtilService])
     ], HymnEditComponent);
     return HymnEditComponent;
 }(hymn_view_component_1.HymnViewComponent));

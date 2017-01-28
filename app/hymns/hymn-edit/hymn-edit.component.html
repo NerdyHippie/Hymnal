@@ -7,9 +7,19 @@
 	</div>
 	
 	<div class="form-group">
+		<label>Subtitle</label>
+		<input type="text" class="form-control" name="subtitle" [(ngModel)]="selectedHymn.subtitle">
+	</div>
+	
+	<div class="form-group">
 		<label>Content</label>
-		<p-editor [(ngModel)]="selectedHymn.content" [style]="{'height':'320px'}"></p-editor>
+		<!--<p-editor [(ngModel)]="selectedHymn.content" [style]="{'height':'320px'}"></p-editor>-->
 		<textarea class="form-control" name="content" [(ngModel)]="selectedHymn.content"></textarea>
+	</div>
+	
+	<div class="form-group">
+		<label>Reference</label>
+		<input type="text" class="form-control" name="reference" [(ngModel)]="selectedHymn.reference">
 	</div>
 	
 	<div class="form-group">
@@ -21,3 +31,5 @@
 	<button type="button" class="btn btn-default" (click)="cancelEdit()">Cancel</button>
 	
 </form>
+
+{{selectedHymn | json}}
