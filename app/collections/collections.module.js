@@ -14,23 +14,21 @@ var common_1 = require('@angular/common');
 var forms_1 = require('@angular/forms');
 var angularfire2_1 = require('angularfire2');
 var global_module_1 = require('../global/global.module');
-var primeng_1 = require('primeng/primeng');
-var hymns_routing_1 = require('./hymns.routing');
-//import { HymnListComponent } from './hymn-list/hymn-list.component';
-var HymnsModule = (function () {
-    function HymnsModule() {
+var collections_routing_1 = require('./collections.routing');
+var CollectionListModule = (function () {
+    function CollectionListModule() {
     }
-    HymnsModule = __decorate([
+    CollectionListModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, common_1.CommonModule, forms_1.FormsModule, angularfire2_1.AngularFireModule, hymns_routing_1.HymnRouting,
-                global_module_1.GlobalModule, primeng_1.EditorModule, primeng_1.SharedModule],
-            declarations: [hymns_routing_1.HymnRouteComponents],
-            exports: [
-                platform_browser_1.BrowserModule, common_1.CommonModule, forms_1.FormsModule, primeng_1.EditorModule, primeng_1.SharedModule]
+            imports: [platform_browser_1.BrowserModule, common_1.CommonModule, forms_1.FormsModule, angularfire2_1.AngularFireModule, collections_routing_1.CollectionRouting,
+                global_module_1.GlobalModule],
+            exports: [],
+            declarations: [collections_routing_1.CollectionRouteComponents],
+            providers: [],
         }), 
         __metadata('design:paramtypes', [])
-    ], HymnsModule);
-    return HymnsModule;
+    ], CollectionListModule);
+    return CollectionListModule;
 }());
-exports.HymnsModule = HymnsModule;
-//# sourceMappingURL=hymn.module.js.map
+exports.CollectionListModule = CollectionListModule;
+//# sourceMappingURL=collections.module.js.map

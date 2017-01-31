@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
 						this.loading = false;
 						
 						this.alertService.error(authError);
-						this.logger.error('Hymnal: Error authenticating user',authError);
+						this.logger.error('Warning: Error authenticating user',authError);
         });
     }
     

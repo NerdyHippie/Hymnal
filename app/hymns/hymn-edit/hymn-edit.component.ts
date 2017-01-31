@@ -8,7 +8,6 @@ import {AlertService} from "../../global/_services/alert.service";
 import {UtilService} from "../../global/_services/utils.service";
 import {UserService} from "../../global/_services/user.service";
 
-
 @Component({
     moduleId: module.id,
     selector: 'hymn-edit',

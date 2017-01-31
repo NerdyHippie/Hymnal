@@ -55,7 +55,7 @@ var EmailActionComponent = (function () {
             .then(function (email) { return _this.accountEmail = email; })
             .catch(function (error) {
             _this.alertService.error(error.message);
-            console.error('Hymnal: Error in verifyPasswordResetCode', error);
+            console.error('Warning: Error in verifyPasswordResetCode', error);
         });
     };
     EmailActionComponent.prototype.doPasswordReset = function (newPassword) {
@@ -66,7 +66,7 @@ var EmailActionComponent = (function () {
             .then(_this.router.navigate(['/'])); })
             .catch(function (error) {
             _this.alertService.error(error.message);
-            console.error('Hymnal: Error in confirmPasswordReset', error);
+            console.error('Warning: Error in confirmPasswordReset', error);
         });
     };
     EmailActionComponent.prototype.handleRecoverEmail = function () {

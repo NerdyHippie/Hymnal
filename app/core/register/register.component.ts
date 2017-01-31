@@ -51,7 +51,7 @@ export class RegisterComponent {
 			
 		}
 		private registerFailure(error:any) {
-			console.error('Hymnal: Registration Failed',error);
+			console.error('Warning: Registration Failed',error);
 			this.alertService.error(error);
 			this.loading = false;
 		}

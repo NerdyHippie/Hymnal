@@ -65,7 +65,7 @@ export class EmailActionComponent implements OnInit {
 				.then((email:any) => this.accountEmail = email)
 				.catch((error:any) => {
 					this.alertService.error(error.message);
-					console.error('Hymnal: Error in verifyPasswordResetCode',error);
+					console.error('Warning: Error in verifyPasswordResetCode',error);
 				});
 		}
 		
@@ -76,7 +76,7 @@ export class EmailActionComponent implements OnInit {
 						.then(this.router.navigate(['/'])))
 				.catch((error:any) => {
 					this.alertService.error(error.message);
-					console.error('Hymnal: Error in confirmPasswordReset',error);
+					console.error('Warning: Error in confirmPasswordReset',error);
 				});
 				
 		}

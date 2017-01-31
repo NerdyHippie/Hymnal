@@ -13,7 +13,7 @@
 	
 	<div class="form-group">
 		<label>Content</label>
-		<!--<p-editor [(ngModel)]="selectedHymn.content" [style]="{'height':'320px'}"></p-editor>-->
+		[<p-editor [(ngModel)]="selectedHymn.content" name="content" [style]="{'height':'320px'}"></p-editor>]
 		<textarea class="form-control" name="content" [(ngModel)]="selectedHymn.content"></textarea>
 	</div>
 	

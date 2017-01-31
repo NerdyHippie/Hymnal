@@ -38,7 +38,7 @@ var LoginComponent = (function () {
             .catch(function (authError) {
             _this.loading = false;
             _this.alertService.error(authError);
-            _this.logger.error('Hymnal: Error authenticating user', authError);
+            _this.logger.error('Warning: Error authenticating user', authError);
         });
     };
     LoginComponent.prototype.loginWithFacebook = function () {

@@ -40,6 +40,7 @@
       ,'@ng-bootstrap/ng-bootstrap':  'npm:@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.js'
       ,'angular2-fullcalendar':       'npm:angular2-fullcalendar/src/calendar/calendar.js'
 	    ,'primeng':                     'npm:primeng'
+	    ,'quill':                       'npm:quill/quill'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {

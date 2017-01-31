@@ -16,6 +16,7 @@ var http_1 = require('@angular/http');
 var angularfire2_1 = require('angularfire2');
 var ng_bootstrap_1 = require('@ng-bootstrap/ng-bootstrap');
 var primeng_1 = require('primeng/primeng');
+//import { Quill } from 'quill/quill';
 // App Routing
 var app_routing_1 = require('./app.routing');
 var index_1 = require('./global/_guards/index');

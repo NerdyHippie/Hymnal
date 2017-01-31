@@ -49,7 +49,7 @@ var RegisterComponent = (function () {
         });
     };
     RegisterComponent.prototype.registerFailure = function (error) {
-        console.error('Hymnal: Registration Failed', error);
+        console.error('Warning: Registration Failed', error);
         this.alertService.error(error);
         this.loading = false;
     };

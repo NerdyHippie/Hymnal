@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AngularFireModule } from 'angularfire2';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CalendarModule,EditorModule,SharedModule} from 'primeng/primeng';
+//import { Quill } from 'quill/quill';
 
 // App Routing
 import { AppRouting,AppRoutingComponents } from './app.routing';
